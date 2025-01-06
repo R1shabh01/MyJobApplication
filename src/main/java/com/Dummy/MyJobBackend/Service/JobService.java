@@ -71,7 +71,7 @@ public class JobService {
         return job;
     }
 
-    public JobDto fetchJobById(Long id) {
+    public JobDto fetchById(Long id) {
         Job job = jobRepository.findById(id).orElse(null);
         JobDto dto = new JobDto();
         dto.setId(job.getId());

@@ -11,7 +11,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -45,7 +44,7 @@ public class JobController {
     public ResponseEntity<ApiResponse> fetchAllJobs(@RequestBody(required = false) Long id) {
         try {
             if (id != null) {
-                JobDto job = jobService.fetchJobById(id);
+                JobDto job = jobService.fetchById(id);
                 if (job == null) {
                     ApiResponse response = new ApiResponse("error", "Job not found for ID: " + id, null);
                     return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);

@@ -20,6 +20,10 @@ public class Company {
     @JsonManagedReference
     private List<Job> jobs;
 
+    @OneToMany(mappedBy = "company")
+    @JsonManagedReference
+    private List<Review> reviews;
+
     public Long getId() {
         return id;
     }
